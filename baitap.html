@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script s>
+        // bài 9
+     function main() {
+        var a = prompt("nhập số thứ nhất");
+    try {
+        if (a > 100){
+            console.log("số lớn hơn 100 , hãy nhập lại số ")
+        }
+    }catch (e) {
+        console.log(("Error:" + e.message))
+    }
+    }
+    // bai10
+    var fullname = {firstName: 'Quang', lastName: 'Huy'};
+    function print1(hello) {
+        console.log( hello+ ' '+ this.firstName + ' ' + this.lastName);
+    }
+    var print2 = print1.bind(fullname, 'Hello' );
+    var print3 = print1.apply(fullname, ['Hello']);
+    var print4 = print1.call(fullname, 'Hello');
+    
+    print2();
+    print3();
+    print4();
+    </script>
+        <button type="button" onclick="main()">Bài 9</button>
+    </body>
+</html>
