@@ -10,27 +10,68 @@
         // bài 9
      function main() {
         var a = prompt("nhập số thứ nhất");
-    try {
-        if (a > 100){
-            console.log("số lớn hơn 100 , hãy nhập lại số ")
+        try {
+            if (a > 100){
+                console.log("số lớn hơn 100 , hãy nhập lại số ")
+            }
+        }catch (e) {
+                console.log("Error:" + e.messag);
+            }
         }
-    }catch (e) {
-        console.log(("Error:" + e.message))
-    }
-    }
-    // bai10
-    var fullname = {firstName: 'Quang', lastName: 'Huy'};
-    function print1(hello) {
-        console.log( hello+ ' '+ this.firstName + ' ' + this.lastName);
-    }
-    var print2 = print1.bind(fullname, 'Hello' );
-    var print3 = print1.apply(fullname, ['Hello']);
-    var print4 = print1.call(fullname, 'Hello');
+
+        function city() {
+            var cityName = prompt("nhập tên thành phố");
+            try {
+                if (cityName == "Ha noi") throw "sai thành phố"
+            }catch (e) {
+                console.log(("Error:	" + e.message))
+            }
+        }
+        // bai 10 callback
+
+        function functionDuocGoi() {
+            alert('Đây là nội dung sẽ chạy nếu function FunctionDuocGoi ');
+        }
+        function functionCallBack(callback) {
+            callback();
+        }
+        functionCallBack(functionDuocGoi);
+        // bai11 
+        var fullname = {firstName: 'Quang', lastName: 'Huy'};
+        function print1(hello) {
+             console.log( hello+ ' '+ this.firstName + ' ' + this.lastName);
+        }
+        var print2 = print1.bind(fullname, 'Hello' );
+        print2();
+        // BAI 12
+        // Call
+        function myProfile(name, age){
+            console.log(name);
+            console.log(age);
+            
+            return this;
+        }
+        var print = myProfile.call(myProfile, "Lưu Quang Huy", 21);
+        // aplly
+        function myProfile(name1, age1){
+            console.log(name1);
+            console.log(age1);
+            
+            return this;
+        }
+        var print3 = myProfile.apply(myProfile, ["Lưu Quang Huy", 22]);
+        
     
-    print2();
-    print3();
-    print4();
+        // Bai 13 es5
+        var ten1 = "Quang Huy";
+        var tuoi1 = 21;
+        console.log ("My name is \ "+ ten1 +" \ " +"and I'm"+" " + tuoi1 + " years old.");
+        // Bai 14 es6
+        let ten = 'Huy Quang';
+        let tuoi = 12;
+        console.log(`My name is ${ten}, I'm ${tuoi} years old .`);
     </script>
         <button type="button" onclick="main()">Bài 9</button>
+        <button type="button" onclick="city()">Bài 9 err</button>
     </body>
 </html>
